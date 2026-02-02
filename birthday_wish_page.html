@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Quicksand',sans-serif;}
+
+/* clearer light-to-dark blue from top to bottom */
+body{
+  background:linear-gradient(to bottom,#eef6ff 0%, #d9ecff 30%, #a9d1ff 65%, #6fa8ff 100%);
+  color:#000000;
+  overflow-x:hidden;
+}
+
+/* floating hearts */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;}
+.bg span{
+  position:absolute;bottom:-40px;
+  color:rgba(255,255,255,0.35);
+  animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(0.7);opacity:0;}
+  10%{opacity:1;}
+  100%{transform:translateY(-120vh) scale(1.6);opacity:0;}
+}
+
+section{
+  position:relative;z-index:2;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  padding:90px 10%;
+  text-align:center;
+}
+
+.hero-name{
+  font-size:4.2rem;
+  letter-spacing:6px;
+  font-weight:600;
+  animation:fadeIn 1.8s ease forwards;
+}
+
+.sub{
+  margin-top:12px;
+  font-size:0.9rem;
+  letter-spacing:4px;
+  opacity:0.75;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:none;}
+}
+
+h2{font-size:2.2rem;margin-bottom:24px;}
+
+p{
+  max-width:760px;
+  font-size:1.05rem;
+  line-height:1.9;
+  opacity:0.95;
+}
+
+.btn{
+  margin-top:70px;
+  padding:18px 64px;
+  border:none;border-radius:60px;
+  background:rgba(255,255,255,0.9);
+  color:#4d86c8;
+  font-size:1rem;
+  cursor:pointer;
+  transition:all .4s ease;
+}
+.btn:hover{transform:scale(1.08);}
+
+/* popup */
+.popup{
+  position:fixed;inset:0;
+  background:rgba(20,50,90,0.55);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .6s ease;
+  z-index:10;
+}
+.popup.show{opacity:1;pointer-events:auto;}
+
+.card{
+  background:linear-gradient(145deg,#eaf4ff,#b7d8ff);
+  padding:60px 90px;
+  border-radius:34px;
+  color:#255a91;
+  text-align:center;
+  animation:pop .9s ease forwards;
+}
+@keyframes pop{from{transform:scale(.7);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+.card h3{font-size:2.3rem;margin-bottom:20px;}
+.card p{font-size:1.1rem;color:#255a91;}
+
+/* BIGGER rising heart */
+.heart{
+  position:fixed;
+  left:50%;bottom:-60px;
+  transform:translateX(-50%);
+  font-size:110px;
+  color:#ffffff;
+  animation:rise 4.5s ease forwards;
+  z-index:9;
+}
+@keyframes rise{
+  0%{transform:translate(-50%,0) scale(0.9);opacity:0;}
+  20%{opacity:1;}
+  100%{transform:translate(-50%,-68vh) scale(1.2);opacity:1;}
+}
+
+/* petals */
+.petal{
+  position:fixed;
+  left:50%;top:32%;
+  color:#ffffff;
+  animation:petal 4.5s ease forwards;
+}
+@keyframes petal{
+  0%{transform:translate(0,0) scale(.7);opacity:1;}
+  100%{transform:translate(var(--x),var(--y)) scale(1.4);opacity:0;}
+}
+
+footer{padding:80px 0;text-align:center;opacity:0.7;}
+
+/* MOBILE GIFTING PERFECT */
+@media (max-width: 768px){
+  section{padding:70px 8%;}
+  .hero-name{font-size:2.8rem;letter-spacing:3px;}
+  h2{font-size:1.6rem;}
+  p{font-size:0.95rem;line-height:1.8;}
+  .btn{padding:16px 48px;font-size:0.95rem;}
+  .card{padding:46px 36px;}
+  .card h3{font-size:1.9rem;}
+  .heart{font-size:90px;}
+}
+</style>
+</head>
+<body>
+
+<div class="bg" id="bg"></div>
+
+<section>
+  <div class="hero-name">PRATHYUSHA</div>
+  <div class="sub">For you 🙋🏼</div>
+</section>
+
+<section>
+  <h2>Some days feel softer 🙌💖</h2>
+  <p>
+    Some days arrive without asking for attention, yet they stay longer than expected. They carry a calm that settles in quietly, making ordinary moments feel a little lighter, a little kinder.
+  </p>
+</section>
+<section>
+  <h2>And today is one of them 🌷💫</h2>
+  <p>
+    
+    <br><br>
+    I hope today feels easy in the best way — unhurried, light, and quietly happy. May there be small moments that make you smile without you even noticing when it happened. Nothing fancy. Nothing loud. Just a day that feels good to be in.
+    <br><br>
+    I’m there with you, though it feels a little heavy not being there in this moment.
+  </p>
+
+  <button class="btn" onclick="openSurprise()">Finally</button>
+</section>
+
+<div class="popup" id="popup">
+  <div class="card">
+    <h3>Happy Birthday </h3>
+    <p>Today is one of those days that feels special in a quiet, deep way 🌸 Even though I’m not there beside you right now, my heart is very much with you 🤍 There’s a small heaviness in not being able to share this moment in person, but that doesn’t change how sincerely I wish for your happiness ✨
+
+I hope today wraps you in warmth — the kind that comes from smiles, kind words, and little moments that make you pause and feel grateful 😊💫 May your day be calm, beautiful, and filled with gentle surprises 🎈🎂
+
+You deserve a year where things feel lighter, where your efforts are rewarded, and where happiness finds you in the simplest ways 🌷🌤️ I hope you laugh freely, dream fearlessly, and feel proud of how far you’ve come 💙
+
+Even from a distance, I’m quietly cheering for you 🙌💖 Thinking of you, hoping the best for you, and wishing that this birthday marks the beginning of something truly good in your life 🌟
+
+Blow out the candles 🎂✨ make a wish 🤞 and trust that beautiful things are on their way to you 💫
+Have a wonderful birthday, Prathyusha 💙💙</p>
+    <p>💙</p>
+  </div>
+</div>
+
+<footer>—</footer>
+
+<audio id="music" src="https://assets.mixkit.co/music/preview/mixkit-sweet-and-happy-119.mp3"></audio>
+
+<script>
+// background hearts
+const bg=document.getElementById('bg');
+for(let i=0;i<70;i++){
+  const s=document.createElement('span');
+  s.innerHTML='❤';
+  s.style.left=Math.random()*100+'%';
+  s.style.fontSize=12+Math.random()*28+'px';
+  s.style.animationDuration=12+Math.random()*18+'s';
+  s.style.animationDelay=Math.random()*10+'s';
+  bg.appendChild(s);
+}
+
+function openSurprise(){
+  const popup=document.getElementById('popup');
+  popup.classList.add('show');
+  document.getElementById('music').play();
+
+  setTimeout(()=>{
+    popup.classList.remove('show');
+    const heart=document.createElement('div');
+    heart.className='heart';
+    heart.innerHTML='❤';
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+      heart.remove();
+      for(let i=0;i<80;i++){
+        const p=document.createElement('div');
+        p.className='petal';
+        p.innerHTML='✿';
+        p.style.setProperty('--x',(Math.random()*500-250)+'px');
+        p.style.setProperty('--y',(Math.random()*420)+'px');
+        document.body.appendChild(p);
+        setTimeout(()=>p.remove(),4500);
+      }
+    },4200);
+  },2300);
+}
+</script>
+
+</body>
+</html>
